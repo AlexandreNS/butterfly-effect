@@ -2,6 +2,16 @@ import os
 import numpy as np
 import cv2 as cv
 
+"""normalizes mask colors to black and white only
+
+within the dataset folder must contain a folder named
+images and another folder named segmentations (masks)
+
+input: dataset_path (folder)
+
+output: masks/
+"""
+
 dataset_path = "leedsbutterfly"
 imgs = os.listdir(dataset_path+"/images")
 segs = os.listdir(dataset_path+"/segmentations")

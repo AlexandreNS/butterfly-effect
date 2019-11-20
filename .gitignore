@@ -3,6 +3,14 @@
 *.txt
 *.sav
 tests/
+# Example
+!0010001.png
+!0010001_seg0.png
+!README.txt
+!001.txt
+descriptions/
+!learn.txt
+!test.txt
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

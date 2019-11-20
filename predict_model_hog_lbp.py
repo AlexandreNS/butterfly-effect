@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 from functools import reduce
 
 path = "models_pls/hog_lbp/"
-name_arq = input("Nome do modelo: ")
-models = pickle.load(open(path+name_arq+".sav", 'rb'))
 
 labels = ["001", "002", "003", "004", "005", "006",
 "007", "008", "009", "010"]
+
+name_arq = input("Template Name: ")
+models = pickle.load(open(path+name_arq+".sav", 'rb'))
 
 arq = open('HOG_files/test.txt', 'r')
 

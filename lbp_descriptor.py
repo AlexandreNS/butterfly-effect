@@ -3,7 +3,24 @@ import os
 import cv2 as cv
 import numpy as np
 
-lbp = LocalBinaryPatterns(24, 8)
+"""Extract LBP features from dataset images
+
+input:  dataset/(classe)/learn
+        dataset/(classe)/test
+        labels
+        numPoints
+        radius
+output: LBP_files/learn.txt
+        LBP_files/test.txt
+"""
+
+numPoints = 24
+radius = 8
+
+labels = ["001", "002", "003", "004", "005", "006",
+"007", "008", "009", "010"]
+
+lbp = LocalBinaryPatterns(numPoints, radius)
 
 f = open("LBP_files/learn.txt", "w")
 f.write("")
@@ -13,10 +30,8 @@ f = open("LBP_files/test.txt", "w")
 f.write("")
 f.close()
 
-labels = ["001", "002", "003", "004", "005", "006",
-    "007", "008", "009", "010"]
 
-print("Extração LBP de aprendizado iniciada:")
+print("LBP learning extraction started:")
 f = open("LBP_files/learn.txt", "a")
 for label in labels:
     path = "dataset/"+label+"/learn"
@@ -32,9 +47,9 @@ for label in labels:
             f.write(" "+str(value_h))
         f.write(" ]\n")
 f.close()
-print("Extração LBP de aprendizado concluida!!!")
+print("LBP extraction of learning completed !!!")
 print("------------------------------------------------------------------------------")
-print("Extração LBP de teste iniciada:")
+print("Test LBP extraction started:")
 f = open("LBP_files/test.txt", "a")
 for label in labels:
     path = "dataset/"+label+"/test"
@@ -50,4 +65,4 @@ for label in labels:
             f.write(" "+str(value_h))
         f.write(" ]\n")
 f.close()
-print("Extração LBP de teste concluida!!!")
+print("Test LBP extraction completed !!!")

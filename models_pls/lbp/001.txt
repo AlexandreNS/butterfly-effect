@@ -1,0 +1,3 @@
+dataset_640x | 60-40
+
+LBP(numPoints=72, radius=24)

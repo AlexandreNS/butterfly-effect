@@ -1,0 +1,7 @@
+dataset_640x | 60-40
+
+LBP(numPoints=72, radius=24)
+
+HOG(orientations=8,
+pixels_per_cell=(20, 20),
+cells_per_block=(1, 1))

@@ -7,6 +7,10 @@ def labelFormat(n):
         return -1
     else:
         return n
+
+labels = ["001", "002", "003", "004", "005", "006",
+"007", "008", "009", "010"]
+
 arq = open('LBP_files/learn.txt', 'r')
 
 matrix_x = []
@@ -15,14 +19,12 @@ matrix_y = []
 for linha in arq:
     y, x = linha.split(" | ")
     x = np.array(np.mat(x.strip("[]").strip())).ravel()
-    print(len(x))
+    print(y, len(x))
     matrix_x.append(x)
     matrix_y.append(y)
 arq.close()
 
 matrix_y = np.array(matrix_y)
-labels = ["001", "002", "003", "004", "005", "006",
-"007", "008", "009", "010"]
 
 models = []
 for label in labels:
@@ -33,28 +35,5 @@ for label in labels:
     models.append(model)
 
 path = "models_pls/lbp/"
-name_arq = input("Nome do modelo: ")
+name_arq = input("Template Name: ")
 pickle.dump(models, open(path+name_arq+".sav", 'wb'))
-# arq = open('LBP_files/test.txt', 'r')
-#
-# matrix_x = []
-# matrix_y = []
-#
-# for linha in arq:
-#     y, x = linha.split(" | ")
-#     x = np.array(np.mat(x.strip("[]").strip())).ravel()
-#     matrix_x.append(x)
-#     matrix_y.append(y)
-# arq.close()
-#
-# acc = 0
-# for i in range(len(matrix_y)):
-#     resp = []
-#     for model in models:
-#         predictValue = model.predict_confidence(matrix_x[i])
-#         resp.append(predictValue)
-#     idx = resp.index(max(resp))
-#     print(matrix_y[i], labels[idx], resp[idx])
-#     if matrix_y[i] == labels[idx]:
-#         acc += 1
-# print("Acertos: "+str(acc)+" de "+str(len(matrix_y)))

@@ -2,6 +2,13 @@ import os
 import cv2 as cv
 import numpy as np
 
+"""run before: resize_images.py
+fixes images to same height and width
+
+input:  resize_mask_out/ (auto)
+output: normalize_imgs/
+"""
+
 imgs = os.listdir("resize_mask_out")
 alturas = []
 largura = 0
